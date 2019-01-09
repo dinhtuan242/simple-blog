@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home pages</title>
+    <title>Show articles</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/app.css">
 </head>
@@ -45,19 +45,21 @@
 
 
 {{--hiển thị bài viết--}}
-    <div class="container">
-        @foreach($articles as $a)
+<div class="container">
         {{--bắt đầu bài--}}
         <div class="row">
+            <div class="col-sm-6 col-sn-offset-3">
+                <a href="{{url('/')}}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-left"></span>Back to home</a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h2>{{$a->title}}</h2>
-                <p>{{$a->content}}</p>
-                <p><a href="{{route('article.show', $a->id)}}">Read more</a></p>
+                <h2>{{$article->title}}</h2>
+                <p>{{$article->content}}</p>
             </div>
         </div>
         {{--kết thúc bài--}}
-            @endforeach
-    </div>
+</div>
 {{--hết phần bài viết--}}
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
