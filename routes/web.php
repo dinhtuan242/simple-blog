@@ -13,6 +13,10 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/articles','ArticlesController@index');
+Route::get('/articles/create',[
+    'as' => 'articles.create',
+    'uses' => 'ArticlesController@create'
+]);
 Route::get('/article/{id}',[
     'as' => 'article.show',
-    'uses' =>  'PagesController@showArticle']);
+    'uses' =>  'ArticlesController@showArticle']);

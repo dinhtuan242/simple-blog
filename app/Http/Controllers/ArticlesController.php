@@ -9,6 +9,14 @@ class ArticlesController extends Controller
 {
     public function index(){
         $articles = Article::all();
-        return  view('home')->with('articles', $articles);
+        return  view('articles/index')->with('articles', $articles);
+    }
+
+    public function showArticle($id){
+        $article = Article::find($id);
+        return view('articles/showArticle')->with('article', $article);
+    }
+    public function create(){
+        return view('articles.create');
     }
 }

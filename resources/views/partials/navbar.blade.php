@@ -1,18 +1,6 @@
-<!doctype html>
-<html lang="">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home pages</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app.css">
-</head>
-<body>
 {{--phần menu--}}
 <nav class="navbar navbar-expand-xl bg-white btn-danger">
-    <a class="navbar-brand" href="#">Coders Việt</a>
+    <a class="navbar-brand" href="{{url('/')}}">Coders Việt</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -21,10 +9,10 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Thêm bài</a>
+                <a class="nav-link" href="{{url('/articles/create')}}">Thêm bài</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
@@ -42,24 +30,3 @@
     </div>
 </nav>
 {{--hết menu--}}
-
-
-{{--hiển thị bài viết--}}
-    <div class="container">
-        @foreach($articles as $a)
-        {{--bắt đầu bài--}}
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h2>{{$a->title}}</h2>
-                <p>{{$a->content}}</p>
-                <p><a href="{{route('article.show', $a->id)}}">Read more</a></p>
-            </div>
-        </div>
-        {{--kết thúc bài--}}
-            @endforeach
-    </div>
-{{--hết phần bài viết--}}
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-</body>
-</html>
