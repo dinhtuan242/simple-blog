@@ -11,7 +11,18 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <form action="#" class="form-hozizontal">
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Vui lòng điền nội dung hợp lệ</strong>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{route('articles.store')}}" method="POST" class="form-hozizontal">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <lable for="title" class="control-label">Tên bài viết: </lable>
                         <input class="form-control" type="text" name="title" placeholder="Tên bài ">

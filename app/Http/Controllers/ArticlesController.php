@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\ArticlesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class ArticlesController extends Controller
 {
@@ -18,5 +20,14 @@ class ArticlesController extends Controller
     }
     public function create(){
         return view('articles.create');
+    }
+    public function store(ArticlesRequest $request){
+        $title = Input::get('title');
+        $content = Input::get('content');
+        Article::create([
+           'title'=>$title,
+           'content'=>$content
+        ]);
+        return redirect()->route('articles.index');
     }
 }

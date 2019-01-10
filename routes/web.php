@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/',[
+    'as' => 'articles.index',
+    'uses' => 'PagesController@index']);
 Route::get('/articles','ArticlesController@index');
 Route::get('/articles/create',[
     'as' => 'articles.create',
@@ -19,4 +21,9 @@ Route::get('/articles/create',[
 ]);
 Route::get('/article/{id}',[
     'as' => 'article.show',
-    'uses' =>  'ArticlesController@showArticle']);
+    'uses' =>  'ArticlesController@showArticle'
+]);
+Route::post('/articles', [
+    'as' => 'articles.store',
+    'uses' => 'ArticlesController@store'
+]);
