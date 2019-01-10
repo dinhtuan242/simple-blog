@@ -30,4 +30,13 @@ class ArticlesController extends Controller
         ]);
         return redirect()->route('articles.index');
     }
+
+    public function edit($id){
+        $articles = Article::find($id);
+        return view('articles/edit');
+    }
+
+    public function update($id){
+        dd("stop");
+    }
 }

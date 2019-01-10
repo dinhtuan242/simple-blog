@@ -15,6 +15,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <h2>{{$article->title}}</h2>
                 <p>{{$article->content}}</p>
+                <a href="#" class="btn btn-danger">Cập nhật bài viết</a>
             </div>
         </div>
         {{--kết thúc bài--}}
